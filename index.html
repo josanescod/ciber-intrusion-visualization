@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- bubble chart -->
+        <h2>Paràmetres de sessió més relacionats amb la probabilitat de detectar intrusions</h2>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="showAttacks">
+                    Mostrar intrusions detectades
+                </label>
+                <label>
+                    <input type="checkbox" id="showNormal">
+                    Mostrar tràfic normal
+                </label>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #69b3a2;"></div>
+                    <span>Tràfic Normal</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #d95f02;"></div>
+                    <span>Intrusió Detectada</span>
+                </div>
+            </div>
+        </div>
+
+        <svg width="900" height="600"></svg>
+
+        <!-- parallel coordinates plot -->
+        <h2>Patrons multidimensionals de risc en sessions de xarxa</h2>
+        <div class="controls">
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="showUTA1">
+                    Mostrar accessos fora d’horari (UTA = 1)
+                </label>
+                <label>
+                    <input type="checkbox" id="showUTA0">
+                    Mostrar accessos normals (UTA = 0)
+                </label>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #69b3a2;"></div>
+                    <span>Horari normal (UTA = 0)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #d95f02;"></div>
+                    <span>Fora d’horari (UTA = 1)</span>
+                </div>
+            </div>
+        </div>
+
+
+        <svg id="parallel" width="900" height="450"></svg>
+
+        <!-- radial bar chart -->
+        <h2>Distribució del risc i concentració d’atacs per protocol</h2>
+        <div class="controls">
+            <div class="control-group">
+                <label>
+                    <input type="radio" name="radialMode" value="count">
+                    Mostrar valors totals
+                </label>
+                <label>
+                    <input type="radio" name="radialMode" value="percent">
+                    Mostrar percentatges
+                </label>
+            </div>
+
+            <div class="control-group">
+                <label>
+                    <input type="radio" name="radialCategory" value="protocol_type">
+                    Agrupar per Protocol
+                </label>
+                <label>
+                    <input type="radio" name="radialCategory" value="encryption_used">
+                    Agrupar per Encriptació
+                </label>
+            </div>
+        </div>
+        <svg id="radial" width="900" height="600"></svg>
+
+        <div class="tooltip" style="opacity:0"></div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
